@@ -26,33 +26,35 @@ public class Autotest {
         driver.findElement(By.id("passwordNext")).click();
 
 
-        //reach the gmail
-        driver.findElement(By.xpath("//*[@title='Google apps']")).click();
-        driver.findElement(By.id("gb23")).click();
+//        //reach the gmail
+//        driver.findElement(By.xpath("//*[@title='Google apps']")).click();
+//        driver.findElement(By.id("gb23")).click();
 
         // now talking un-read email form inbox into a list
-        List<WebElement> unreademeil = driver.findElements(By.xpath("//*[@class='zF']"));
-        String MyMailer = "Meetup";
-        for (int i = 0; i < unreademeil.size(); i++) {
-            if (unreademeil.get(i).isDisplayed() == true) {
+        List<WebElement> unreademail = driver.findElements(By.xpath("//*[@class='zF']"));
+
+        System.out.println("You have " + unreademail.size() + " unread emails!!!");
+
+        for (int i = 0; i < unreademail.size(); i++) {
+            if (unreademail.get(i).isDisplayed()) {
                 // now verify if you have got mail form a specific mailer (Note Un-read mails)
                 // for read mails xpath loactor will change but logic will remain same
-                if (unreademeil.get(i).getText().equals(MyMailer)) {
-                    System.out.println("Yes we have got mail form " + MyMailer);
+                if (unreademail.get(i).getText() != null) {
+                    System.out.println("Yes we have got mail form " + unreademail.get(i).getText());
                     // also you can perform more actions here
                     // like if you want to open email form the mailer
-                    break;
                 } else {
-                    System.out.println("No mail form " + MyMailer);
+                    System.out.println("Soorrryyyyy No mail :) ");
                 }
             }
 
             //
 //Wait for 5000 Sec
-            Thread.sleep(5);
-// Close the drivers
-            driver.quit();
+
         }
+        Thread.sleep(5);
+//// Close the drivers
+        driver.quit();
     }
 }
 
