@@ -33,13 +33,13 @@ public class Autotest {
         // now talking un-read email form inbox into a list
         List<WebElement> unreademail = driver.findElements(By.xpath("//*[@class='zF']"));
 
-        System.out.println("You have " + unreademail.size() + " unread emails!!!");
+        System.out.println("You have "+unreademail.size()+ " unread emails!!!");
 
         for (int i = 0; i < unreademail.size(); i++) {
             if (unreademail.get(i).isDisplayed()) {
                 // now verify if you have got mail form a specific mailer (Note Un-read mails)
                 // for read mails xpath loactor will change but logic will remain same
-                if (unreademail.get(i).getText() != null) {
+                if (unreademail.get(i).getText()!=null) {
                     System.out.println("Yes we have got mail form " + unreademail.get(i).getText());
                     // also you can perform more actions here
                     // like if you want to open email form the mailer
@@ -52,9 +52,9 @@ public class Autotest {
 //Wait for 5000 Sec
 
         }
-        Thread.sleep(5);
+//        Thread.sleep(5);
 //// Close the drivers
-        driver.quit();
+//        driver.quit();
     }
 }
 
